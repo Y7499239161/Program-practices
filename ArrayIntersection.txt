@@ -1,0 +1,46 @@
+
+3.write a program to accept 2 array of 10 element each and create a 3 rd array which is intersection of both array.
+
+
+import java.util.Scanner;
+
+public class ArrayIntersection {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int[] array1 = new int[10];
+        int[] array2 = new int[10];
+        ArrayList<Integer> intersection = new ArrayList<>();
+        
+        // Input for first array
+        System.out.println("Enter 10 elements for the first array:");
+        for (int i = 0; i < 10; i++) {
+            array1[i] = scanner.nextInt();
+        }
+        
+        // Input for second array
+        System.out.println("Enter 10 elements for the second array:");
+        for (int i = 0; i < 10; i++) {
+            array2[i] = scanner.nextInt();
+        }
+        
+        // Find intersection
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (array1[i] == array2[j] && !intersection.contains(array1[i])) {
+                    intersection.add(array1[i]);
+                }
+            }
+        }
+        
+        // Display the intersection array
+        System.out.println("Intersection of the two arrays:");
+        if (intersection.isEmpty()) {
+            System.out.println("No common elements found.");
+        } else {
+            for (int element : intersection) {
+                System.out.print(element + " ");
+            }
+        }
+    }
+}
